@@ -1,0 +1,52 @@
+
+<body class="img js-fullheight" style="background-image: url(assets/cssAuthentification/css/images/employe.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<h3 class="mb-4 text-center">Have an account?</h3>
+		      	<form  class="signin-form"  #form="ngForm">
+		      		<div class="form-group">
+		      			<input  type="text" name="username" class="form-control" [(ngModel)]="login.username" #u="ngModel" placeholder="Username" required>
+		      		</div>
+                      <div  *ngIf="u.invalid && u.touched">
+                        <div *ngIf="u.errors.required" style="color: red;">username is a required field !!!</div>
+                        </div>
+	            <div class="form-group">
+	              <input id="password-field" name="password" type="password" class="form-control" #p="ngModel"  [(ngModel)]="login.password"placeholder="Password" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+                <div  *ngIf="p.invalid && p.touched">
+                    <div *ngIf="p.errors.required" style="color: red;">Password is a required field !!!</div>
+                    </div>
+	            <div class="form-group">
+	            	<button type="submit"  class="form-control btn btn-primary submit px-3" [disabled]="form.invalid"(click)="loginUser(login)">Sign In</button>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+		            	<a routerLink="/signUp" style="color: #fff">Create Account ? </a>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#" style="color: #fff">Forgot Password ?</a>
+								</div>
+	            </div>
+	          </form>
+	          <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+	          <div class="social d-flex text-center">
+	          
+	          	<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-linkedin mr-2"></span> linkedin</a>
+	          </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+	
