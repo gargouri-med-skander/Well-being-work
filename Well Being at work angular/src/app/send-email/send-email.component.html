@@ -1,0 +1,26 @@
+<form>
+
+
+</form>
+<fieldset >
+    <legend>Email :</legend>
+<form class="myForm">
+    
+        <div >
+           
+
+            <input class="form-control" name="email" type="text" placeholder="your email" [(ngModel)]="email">
+        </div>
+        
+    
+    <br>
+    <button type="submit" class="btn btn-primary" (click)="sendEmail()">send</button>
+
+    
+</form>
+
+
+</fieldset>
+
+<br>
+<button  class="btn btn-danger" style="width: 100%;" (click)="closeDialog()">close </button>

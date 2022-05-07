@@ -1,0 +1,124 @@
+<nav>
+    <div class="nav-left">
+        <img src="assets/cssHomePage/images/wellBeingLogo.jpg" alt="Logo">
+        <input type="search" placeholder="Search..">
+    </div>
+    <div class="nav-middle">
+        <a routerLink="/" href="#" class="active">
+            <i class="fa fa-home"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-play-circle"></i>
+        </a>
+        <a href="#">
+            <i class="fa fa-users"></i>
+        </a>
+    </div>
+    <div class="nav-right">
+        <span class="profile"></span>
+        <a>
+            <i class="fab fa-facebook-messenger"></i>
+
+        </a>
+        <a href="#">
+            <i class="fa fa-bell"></i>
+        </a>
+
+        <div class="dropdown">
+            <button (click)="myFunction()" class="dropbtn"><strong style="color: black;margin: 0px 0px 0px -4px;">•••</strong></button>
+
+            <div id="myDropdown" class="dropdown-content">
+
+                <a (click)="openSetting()" style="width: 150px;text-align: center;cursor: pointer;">setting</a>
+                <hr>
+                <a (click)="logOutFunction()" style="width: 150px;text-align: center;cursor: pointer;"><i
+                        class="fa fa-sign-out"></i>log out</a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<div class="containerr">
+    <div class="left-panel" style="background-color: #ddd;">
+        <ul>
+            <li>
+                <img [src]=employeAutenticated.profilPicture alt="">
+
+                <p>{{username}}</p>
+
+            </li>
+            <li>
+                <i class="fa fa-users"></i>
+                <p>Groups</p>
+            </li>
+            <li>
+                <i class="fa fa-bookmark"></i>
+                <p>forms</p>
+            </li>
+            <li>
+                <i class="fab fa-facebook-messenger"></i>
+
+                <a routerLink="/inBox">Inbox</a>
+            </li>
+            <li>
+                <i class="fas fa-calendar-week"></i>
+                <p>Events</p>
+            </li>
+            <li>
+                <i class="fa fa-bullhorn"></i>
+                <p>Ads</p>
+            </li>
+            <li>
+                <i class="fas fa-hands-helping"></i>
+               
+                <p>Offers</p>
+            </li>
+            <li>
+                <i class="fas fa-briefcase"></i>
+                <a routerLink="/listquiz">quizz</a>
+            </li>
+            <li>
+                <i class="fa fa-star"></i>
+                <p>Favourites</p>
+            </li>
+            <li>
+                <i class="fa fa-sign-out"></i>
+                <a (click)="logOutFunction()">logOut</a>
+            </li>
+        </ul>
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Advance</a>
+            <a href="#">More</a>
+        </div>
+    </div>
+    <div class="middle-panel">
+    </div>
+    <div class="right-panel">
+        <div class="friends-section">
+            <h4>Employess
+                <div class="nav-left">
+
+                    <input id="searchID" type="search" placeholder="Search a employee">
+                </div>
+            </h4>
+            <div id="oldAffich">
+                <div *ngFor="let e of employeeList , let i=index">
+                    <div [id]="e.idEmployee">
+                        <a class='friend' href="#">
+                            <div class="dp">
+                                <img [src]=e.profilPicture alt="">
+                            </div>
+                            <p class="name">{{e.username}} <strong *ngIf="e.active" style="color: green;"> •</strong>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="resultat">
+
+            </div>
+        </div>
+    </div>
+</div>

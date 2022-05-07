@@ -1,0 +1,31 @@
+.myForm {
+    flex-direction: column;
+    display: flex;
+}
+
+.formProfilPic{
+    flex-direction: row;
+    display: flex;
+}
+fieldset {
+    padding:0 20px 20px 20px;
+    margin-bottom:10px;
+    border:1px solid #DF3F3F;
+    }
+   legend {
+    color:#DF3F3F;
+    font-weight:bold
+    }
+   label {
+    margin-top:10px;
+    display:block;
+    }
+   label.inline {
+    display:inline;
+    margin-right:50px;
+    }
+    .form-row{
+        display: flex;
+        flex-direction: row;
+        -ms-flex-align: stretch;
+    }

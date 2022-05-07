@@ -1,0 +1,95 @@
+<form class="myForm">
+<div class="form-row">
+    <div class="col">
+<fieldset >
+    <legend>Info :</legend>
+<form class="myForm">
+    <!--first name-->
+      <div>
+        <div >
+            <label>first Name</label>
+
+            <input class="form-control" type="text" name="first" [(ngModel)]="employeAuthenticated.firstName"
+                [value]="employeAuthenticated.firstName">
+        </div>
+        <div >
+            <label>last Name</label>
+
+            <input class="form-control" type="text" name="last" [(ngModel)]="employeAuthenticated.lastName"
+                [value]="employeAuthenticated.lastName">
+        </div>
+        <div>
+        <label>date of birth</label>
+
+        <input class="form-control" type="date" name="dateNEW" [(ngModel)]="employeAuthenticated.dateOfBirth"[value]="employeAuthenticated.dateOfBirth">
+        </div>
+    </div>
+    <br>
+        <button type="submit" class="btn btn-primary" (click)="changeInfo()">save </button>
+
+    
+</form>
+</fieldset>
+</div>
+<!--last name-->
+
+
+
+<!--date-->
+
+
+
+
+
+<!--email-->
+<div class="col">
+<fieldset>
+    <legend>Email&Username :</legend>
+    <form class="myForm">
+        <div>
+        <label>Email</label>
+        <input class="form-control" type="text" name="email" [(ngModel)]="employeAuthenticated.email"[value]="employeAuthenticated.email">
+        </div>
+        <div>
+            <label>Username</label>
+        <input class="form-control" type="text" name="username" [(ngModel)]="username" [value]="username">
+        </div>
+        <div>
+            
+        <input hidden>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" (click)="changeEmailAndUsername()">save & logout </button>
+    </form>
+</fieldset>
+</div>
+</div>
+</form>
+<!--username-->
+
+<!--password double-->
+<fieldset >
+
+    <legend>Password :</legend>
+    <form >
+
+        <input class="form-control" type="password" name="oldPass"[(ngModel)]="oldPass"placeholder="old password">
+        <div class="registrationFormAlert" style="color:red;" id="divAlertOld"></div> <br>
+        <input class="form-control" id="newpass" type="password" name="Pass" [(ngModel)]="Pass" placeholder="new password"> <br>
+        <input class="form-control" id="repeatpass"type="password" placeholder="repeat your new password"> 
+        <div class="registrationFormAlert" style="color:red;" id="divAlert"></div><br>
+        <button class="form-control" type="submit" class="btn btn-primary" (click)="changePassword()">save </button>
+    </form>
+</fieldset>
+<!--profil pic-->
+<fieldset> 
+    <legend>new profil picture :</legend>
+    <form class="formProfilPic">
+       
+        <input class="form-control" type="file"  (change)="onFile($event)">
+
+        <button type="submit" class="btn btn-primary" (click)="changeProfil()">save </button>
+    </form>
+</fieldset>
+<br>
+<button class="btn btn-danger" style="margin-left: 45%;margin-bottom:30px;" (click)="closeDialog()">close </button>

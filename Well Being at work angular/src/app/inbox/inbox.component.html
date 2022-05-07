@@ -1,0 +1,286 @@
+<nav>
+  <div class="nav-left">
+    <img src="assets/cssHomePage/images/wellBeingLogo.jpg" alt="Logo">
+    <input type="search" placeholder="Search..">
+  </div>
+  <div class="nav-middle">
+    <a routerLink="/" href="#" routerLinkActive="active" class="active">
+      <i class="fa fa-home"></i>
+    </a>
+    <a href="#">
+      <i class="fa fa-play-circle"></i>
+    </a>
+    <a href="#">
+      <i class="fa fa-users"></i>
+    </a>
+  </div>
+  <div class="nav-right">
+    <span class="profile"></span>
+    <a>
+      <i class="fab fa-facebook-messenger"></i>
+    </a>
+    <a href="#">
+      <i class="fa fa-bell"></i>
+    </a>
+    <a href="#">
+      <i class="fas fa-ellipsis-h"></i>
+    </a>
+  </div>
+</nav>
+
+<div class="containerr" id="idContainer">
+
+  <div class="left-panel" style="background-color: #ddd;width: 500px;">
+    <input style="margin-top: 10px;" id="searchID" type="search" placeholder="search... 🔎">
+    <div class="story-section">
+      <div name="size" [(ngModel)]="sizeOfTeableEmployess"></div>
+      <div *ngIf="sizeOfTeableEmployess==0">
+        there is no employess here !!
+      </div>
+      <div *ngIf="sizeOfTeableEmployess==1" [(ngModel)]="listEmployees">
+        <div class="story">
+          <ul>
+            <li>
+              <a>
+                <img [src]="listEmployees[0].profilPicture" (click)="showMessageFromList(0);" alt="">
+              </a>
+            </li>
+            <p> {{listEmployees[0].username}}<strong *ngIf="listEmployees[0].active" style="color: green;"> •</strong>
+            </p>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="sizeOfTeableEmployess >=2">
+
+        <div *ngIf="indexx>0">
+          <div class="boutn">
+            <a id="aPrevious" (click)="previous()" class="previous round">&#8249;</a>
+          </div>
+        </div>
+        <div *ngIf="(indexx+1 < sizeOfTeableEmployess)">
+          <div style="display: flex;">
+            <div class="story">
+              <ul>
+                <li>
+                  <a>
+                    <img [src]="listEmployees[indexx].profilPicture" (click)="showMessageFromList(1);" alt="">
+                  </a>
+                </li>
+                <p> {{listEmployees[indexx].username}}<strong *ngIf="listEmployees[indexx].active"
+                    style="color: green;">•</strong></p>
+              </ul>
+            </div>
+            <div class="story">
+              <ul>
+                <li>
+                  <a>
+                    <img [src]="listEmployees[indexx+1].profilPicture" (click)="showMessageFromList(2);" alt="">
+                  </a>
+                </li>
+                <p> {{listEmployees[indexx+1].username}}<strong *ngIf="listEmployees[indexx+1].active"
+                    style="color: green;"> •</strong></p>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="boutn">
+          <a id="aNext" (click)="next()" class="next round">&#8250;</a>
+        </div>
+      </div>
+    </div>
+    <div class="groupChat">
+      <button style="border-radius: 11%;" class="btn btn-success" (click)="openAddGroup()">create group</button>
+
+    </div>
+    <br>
+
+    <hr style="  border:2px solid black;">
+    <div class="messenger">
+      <div id="oldAffich">
+
+        <div *ngFor="let c of listAllLastMessage , let i=index">
+          <div [id]="c.idChat" style="background-color: beige;margin-top: 0px;">
+            <a (click)="showMessage(i)">
+              <div *ngIf="c.groupchat==null">
+                <ul>
+                  <li style="width: 100%;">
+                    <!--recever houwa eli connecteeeee-->
+                    <div *ngIf="c.employeeRecever.idEmployee == userAuthenticated.idEmployee ">
+                      <div style="display: flex;flex-direction: row;justify-content: flex-start;align-items: center;">
+                      <div style="width:18%" class="pic">
+                        <img [src]=c.employeeSender.profilPicture>
+                      </div>
+                      <div style="display: flex;flex-direction: column;">
+                        <p style="font-family: fantasy;">{{c.employeeSender.username}}</p>
+
+                        <div *ngIf="c.seen">
+                          <p> {{c.content}} <small style="color: green;">.{{c.strDate}}</small> </p>
+                        </div>
+                        <div *ngIf="!(c.seen)&&!(userAuthenticated.idEmployee==c.employeeSender.idEmployee)">
+                          <p style="font-weight: 600"> {{c.content}}<small style="color: green;">.{{c.strDate}}</small></p>
+                        </div>
+                        <div *ngIf="(userAuthenticated.idEmployee==c.employeeSender.idEmployee)">
+                          <p> {{c.content}}<small style="color: green;">.{{c.strDate}}</small> </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <!--sender houwa connecte-->
+                    <div *ngIf="c.employeeRecever.idEmployee != userAuthenticated.idEmployee ">
+                      <div style="display: flex;flex-direction: row;justify-content: flex-start;align-items: center;">
+                        <div style="width:18%" class="pic">
+                          <img [src]=c.employeeRecever.profilPicture>
+                        </div>
+                        <div style="display: flex;flex-direction: column;">
+                          <p style="font-family: fantasy;">{{c.employeeRecever.username}}</p>
+
+                          <div *ngIf="c.seen">
+                            <p> you:{{c.content}}<small style="color: green;">.{{c.strDate}}</small></p>
+                            <h5>seen 👁️‍🗨️</h5>
+                          </div>
+                          <div *ngIf="!c.seen">
+                            <p style="font-family: 'Courier New', Courier, monospace;"> you:{{c.content}}<small style="color: green;">.{{c.strDate}}</small></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div *ngIf="c.groupchat!=null">
+                <ul>
+                  <li>
+                    <div style="display: flex;flex-direction: row;justify-content: flex-start;align-items: center;">
+                    <div  style="width:18%" class="pic">
+                    <img src="assets/cssHomePage/images/imageGroupe.jpg">
+                  </div>
+                    <div  style="display: flex;flex-direction: column;">
+                      <p style="font-family: fantasy;">{{c.groupchat.nameGroup}}</p>
+                      
+                      <p> {{c.content}}<small style="color: green;">.{{c.strDate}}</small></p>
+                    </div>
+                  </div>
+                  </li>
+                </ul>
+              </div>
+            </a>
+            <hr style="  border:1px solid black;">
+          </div>
+        </div>
+      </div>
+      <!--partie resultat recherche-->
+      <div id="resultatSearch">
+
+
+      </div>
+    </div>
+  </div>
+  <tbody id="tbodyID" style="width: 100%;">
+    
+    <div class="scrollArea">
+
+      <app-messagerie [userChatting]="userChattingWith" [groupChatting]="groupChattingIn" [list]="listMessage"
+        [listLastMsg]="listAllLastMessage">
+      </app-messagerie>
+    </div>
+    <div class="footer">
+      <div class="type_msg">
+        <div class="input_msg_write">
+          <form #form="ngForm" (submit)="sendMsg(contenuMsg,form);">
+            <input type="text" name="message" class="write_msg" [(ngModel)]="contenuMsg" placeholder="Type a message"
+              #t="ngModel" />
+            <input type="file">
+            <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+          </form>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tbody>
+  <div class="left-panel">
+    <div *ngIf="userChattingWith!=null">
+      <div class="chatInfo">
+        <img [src]="userChattingWith.profilPicture">
+        <h2>{{userChattingWith.username}}</h2>
+      </div>
+    </div>
+    <div *ngIf="groupChattingIn!=null">
+      <div class="chatInfo">
+        <img src="assets/cssHomePage/images/imageGroupe.jpg">
+        <h2>{{groupChattingIn.nameGroup}}</h2>
+      </div>
+      <hr style=" border:2px solid black;">
+      <div id="idLeft" class="actionGroup">
+        <br>
+        <div class="actionGroup" *ngIf="groupChattingIn.employeeCreater.idEmployee==userAuthenticated.idEmployee">
+          <button class="btn btn-primary" type="button" (click)="inviteMember()">invite</button>
+          <br>
+
+        </div>
+        <button class="btn btn-primary" type="button" (click)="showMembers()">show members</button>
+        <br>
+        <button class="btn btn-danger" type="button" (click)="leaveGroup()">leave</button>
+      </div>
+      <div id="idHidden">
+        <div class="listMmeber">
+          <div *ngFor="let c of showMemeberList , let p=index">
+            <div *ngIf="c.idEmployee==userAuthenticated.idEmployee">
+              <div style="display: flex;align-items: center;width: 100%;justify-content: space-between;">
+                <a style="display: flex;" class='friend'>
+                  <div class="dp">
+                    <img [src]=c.profilPicture alt="">
+                  </div>
+                  <p class="name">{{c.username}}(you) <strong *ngIf="c.active" style="color: green;"> •</strong></p>
+                </a>
+              </div>
+            </div>
+            <div *ngIf="c.idEmployee!=userAuthenticated.idEmployee">
+              <div style="display: flex;align-items: center;width: 100%;justify-content: space-between;">
+                <a style="display: flex;" class='friend'>
+                  <div class="dp">
+                    <img [src]=c.profilPicture alt="">
+                  </div>
+                  <p *ngIf="groupChattingIn.employeeCreater.idEmployee!=c.idEmployee" class="name">{{c.username}}
+                    <strong *ngIf="c.active" style="color: green;"> •</strong>
+                  </p>
+                  <p *ngIf="groupChattingIn.employeeCreater.idEmployee==c.idEmployee" class="name">{{c.username}}(ADMIN)
+                    <strong *ngIf="c.active" style="color: green;"> •</strong>
+                  </p>
+                </a>
+                <button *ngIf="groupChattingIn.employeeCreater.idEmployee==userAuthenticated.idEmployee"
+                  style="right: 0;" type="button" class="btn btn-danger" (click)="kickMember(p)">kick</button>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div>
+          <button style="width: 100%;" class="btn btn-primary" type="button" (click)="showMenu()">back</button>
+        </div>
+      </div>
+      <div id="hide2">
+        <div class="listMmeber">
+          <div *ngFor="let inv of listInvite , let i=index">
+            <div style="display: flex;align-items: center;width: 100%;justify-content: space-between;">
+              <a style="display: flex;" class='friend'>
+                <div class="dp">
+                  <img [src]=inv.profilPicture alt="">
+                </div>
+                <p class="name">{{inv.username}}</p>
+              </a>
+              <button style="right: 0;" type="button" class="btn btn-primary"
+                (click)="inviteMemberFromList(i)">Invite</button>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div>
+          <button style="width: 100%;" class="btn btn-primary" type="button" (click)="showMenu()">back</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

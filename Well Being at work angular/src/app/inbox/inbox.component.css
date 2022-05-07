@@ -1,0 +1,422 @@
+
+#action_menu_btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+  #app {
+   
+    margin: 0 auto;
+  }
+  /*hedhi partie users eli mawjoudin*/
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .containerr .left-panel input{
+    width: 250px;
+    height:40px;
+    padding:5px 10px;
+    border:none;
+    border-radius: 25px;
+    outline:none;
+    background-color: #eee;
+    margin-left: 10px;
+}
+  .containerr .left-panel
+{
+   
+    top:70px;
+    width:450px;
+    height:calc(100vh - 70px);
+}
+  .left-panel .story-section{
+    display:flex;
+
+    padding:1rem;
+}
+
+
+.left-panel .story-section .story{
+    width:120px;
+    height:120px;
+    border-radius: 10px;
+    position: relative;
+    overflow:hidden;
+    cursor: pointer;
+    margin:0px 5px;
+    box-shadow: 0 0 5px 5px #ddd;
+    background:#fff;
+}
+.left-panel .story-section .story a{
+  cursor: auto;
+}
+
+.left-panel .story-section .story > img{
+    height:100%;
+    
+    transition:.3s ease-in;
+}
+
+.left-panel .story-section .story:hover > img{
+    transform:scale(1.05);
+}
+
+.left-panel .story-section .story .dp-container{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    overflow:hidden;
+    position:absolute;
+    top:10px;
+    left:10px;
+    border:royalblue 4px solid; 
+}
+
+.left-panel .story-section .story .dp-container > img{
+    width:50%;
+    height:50%;
+}
+.pic img {
+  height:100%;
+  width:100%;
+  margin-left: -12px;
+}
+.left-panel .story-section .story .name{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    padding:5px;
+    color:#fff;
+    font-weight:bold;
+}
+
+.left-panel .story-section .story.create .dp-image{
+    height:80%;
+    overflow:hidden;
+}
+
+.left-panel.story-section .story.create .dp-image img{
+    width:100%;
+}
+
+.left-panel .story-section .story.create .dp-container{
+    top:70%;
+    left:50%;
+    transform: translateX(-50%);
+    display:grid;
+    place-items: center;
+    background:royalblue;
+    border:4px solid #fff;
+}
+
+.left-panel .story-section .story.create .dp-container i{
+    color: #fff;
+}
+
+
+.left-panel .story-section .boutn a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  cursor: auto;
+}
+
+.left-panel .story-section a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.left-panel .story-section .previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.left-panel .story-section .next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.left-panel .story-section .round {
+  border-radius: 50%;
+}
+.groupChat{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+  
+}
+  /*hedhi partie messenger*/
+  .incoming_msg_img img{
+    display: inline-block;
+    width: 10%;
+  }
+ 
+  .attach_btn{
+    border-radius: 15px 0 0 15px !important;
+    background-color: rgba(0,0,0,0.3) !important;
+        border:0 !important;
+        color: white !important;
+        cursor: pointer;
+      }
+   .send_btn{
+    border-radius: 0 15px 15px 0 !important;
+    background-color: rgba(0,0,0,0.3) !important;
+        border:0 !important;
+        color: white !important;
+        cursor: pointer;
+      }
+      .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.msg_send_btn {
+  background: #05728f none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+  width: 33px;
+}
+    .card-footer{
+    margin-bottom: 10px;
+   
+    background-position-x: left;
+    background-position-y: bottom;
+    
+		border-radius: 0 0 15px 15px !important;
+			border-top: 0 !important;
+	}
+  .input_msg_write input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: #4c4c4c;
+    font-size: 15px;
+    min-height: 48px;
+    width: 100%;
+  }
+  
+  .containerr  .footer{
+    height: 110px;
+    position: fixed;
+    bottom: 0;
+   width: 950px;
+    text-align: center;
+   
+  }
+  .containerr  .uper{
+    height: 110px;
+    position: fixed;
+    top: 0;
+   width: 950px;
+    text-align: center;
+   
+  }
+  
+    .containerr tbody{
+      display: flex;
+      flex-direction: column-reverse;
+      overflow-y: hidden;
+      overflow: scroll;
+    height: 550px;
+    align-content: center;
+    background: white;
+   
+  }
+ 
+
+  .containerr .chatInfoConnected h3{
+    text-align: center;
+    right: 0;
+
+  }
+  .containerr .chatInfoConnected img{
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    overflow:hidden;
+    cursor: pointer;
+left: 0;
+
+  }
+  .containerr .left-panel .chatInfo img{
+margin-top: 10%;
+margin-left: 15%;
+margin-top: 40%;
+height:200px;
+width: 200px;
+
+
+  }
+  .containerr .left-panel .chatInfo h2{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+
+    text-shadow: #373737;
+    
+    
+      }
+      .actionGroup{
+        display: flex;
+        flex-direction: column;
+      }
+  .message-group-received,
+  .message-group-sent {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .message-group-received {
+    display: flex;
+  }
+  
+  .message-group-received > div:first-child {
+    margin-top: auto;
+    margin-right: 5px;
+  }
+  
+  .message-group-received > div:last-child {
+    flex-grow: 1;
+  }
+  
+  .message-group-received > div:first-child > img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+  #divGroupRecevied > div:first-child > img{
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+  }
+  
+  .message-group-sent {
+    text-align: right;
+  }
+  
+  .message-received,
+  .message-sent {
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2px 0;
+  }
+  #divprivate{
+    max-width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px 0;
+  }
+  .message-sent {
+    margin-left: auto;
+    display: flex;
+  }
+  
+
+  
+  .message-received-text,
+  .message-sent-text {
+    display: inline-block;
+    padding: 10px;
+    min-height: 20px;
+  }
+  
+  .message-received-text {
+    background: #08d3f2;
+    border-radius: 4px 20px 20px 4px;
+  }
+  
+  .message-received:first-child > .message-received-text {
+    border-top-left-radius: 20px;
+  }
+  
+  .message-received:last-child > .message-received-text {
+    border-bottom-left-radius: 20px;
+  }
+  
+  .message-sent-text {
+    background: #368438;
+    border-radius: 20px 4px 4px 20px;
+    text-align: left;
+    margin-left: auto;
+  }
+  
+  .message-sent:first-child > .message-sent-text {
+    border-top-right-radius: 20px;
+  }
+  
+  .message-sent:last-child > .message-sent-text {
+    border-bottom-right-radius: 20px;
+  }
+  .listMmeber{
+    padding:20px 20px 20px 20px;
+    height: 180px;
+    overflow-y: scroll;
+  }

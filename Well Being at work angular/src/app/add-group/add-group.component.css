@@ -1,0 +1,66 @@
+.listEmploye img{
+    height:60px;
+    width:60px;
+    border-radius: 50%;
+    overflow:hidden;
+    cursor: pointer;
+}
+.listEmploye{
+    display: flex;
+    align-items:center;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+    border-radius: 5px;
+    padding:7px 10px;
+    color:#333;
+    height: "270px";
+    overflow-x: scroll;
+}
+.listEmploye p{
+    text-align: center;
+}
+.signleInfoInList{
+    border:2px solid gray;
+    padding:0 20px 20px 20px;
+    display: flex;
+    flex-direction:column;
+
+}
+.round {
+    border-radius: 50%;
+    color: black;
+    background-color: red;
+    width:20px;
+    height: 20px;
+  }
+fieldset {
+    padding:0 20px 20px 20px;
+    margin-bottom:10px;
+    border:1px solid #DF3F3F;
+    width:50px
+    }
+   legend {
+    color:#DF3F3F;
+    font-weight:bold
+    }
+    .myForm{
+        position: sticky;
+        padding:20px 20px 20px 20px;
+        border:4px solid gray;
+
+    }
+    .listChossen{
+        padding:5px 5px 5px 5px;
+        border:2px solid black;
+        display: flex;
+        overflow-x: scroll;
+
+    }
+   
+    .oneElementInListChossen{
+        display: flex;
+        border:1px solid black;
+        width:100px;
+       justify-content: space-between;
+    }
+    

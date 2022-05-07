@@ -1,0 +1,161 @@
+<div name="size" [(ngModel)]="sizeList"></div>
+<div *ngFor="let m of list , let i=index">
+    <!--awelll element-->
+    <div *ngIf="m.idChat==list[0].idChat">
+        <div id="app" class="partie-messenger" style="width: 100%;">
+            <!--hedhiya div mt3 conversation moush mt3 groupe-->
+            <div style="margin-top: 20px;" *ngIf="m.groupchat==null">
+                <div>
+                    <h4 style="text-align: center;">{{m.strDateInChat}}</h4>
+                </div>
+                <div *ngIf="m.employeeSender.idEmployee!=userAuthenticated.idEmployee">
+                    <div class="message-group-received">
+
+                        <div id="divprivate" class="message-received">
+                            <img id="imagess" [src]="m.employeeSender.profilPicture" />
+                            <div id="idDivRecevier" class="message-received-text">
+                                {{m.content}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="m.employeeSender.idEmployee==userAuthenticated.idEmployee">
+                    <div class="message-group-sent">
+                        <div class="message-sent">
+                            <div id="idDivSender" class="message-sent-text">
+                                {{m.content}}
+                            </div>
+
+                        </div>
+
+                        <div *ngFor="let c of listLastMsg , let p=index">
+                            <div *ngIf="m.seen&&(c.idChat==m.idChat)">
+                                seen ✔
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--hedhi div mt3 chat groupe-->
+            <div style="margin-top: 20px;" *ngIf="m.groupchat!=null">
+
+                <div *ngIf="m.employeeSender!=null">
+                    <div>
+                        <h4 style="text-align: center;">{{m.strDateInChat}}</h4>
+                    </div>
+                    <div *ngIf="m.employeeSender.idEmployee!=userAuthenticated.idEmployee">
+                        <div id="divGroupRecevied" class="message-group-received">
+                            <div class="message-received">
+                                <div style="display: flex;flex-direction: column-reverse;">
+                                    <p style="margin-left: 5px;">{{m.employeeSender.username}}</p>
+                                    <img style="width: 40px;height: 40px;border-radius: 50%;"
+                                        [src]="m.employeeSender.profilPicture" />
+                                </div>
+                                <div class="message-received-text">
+                                    {{m.content}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="m.employeeSender.idEmployee==userAuthenticated.idEmployee">
+                        <div class="message-group-sent">
+                            <div class="message-sent">
+                                <div class="message-sent-text">
+                                    {{m.content}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="(m.employeeSender==null)&&(m.employeeRecever==null)">
+                    <h4 style="text-align: center;">{{m.content}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--tofa lena awel element-->
+    <div *ngIf="m.idChat!=list[0].idChat">
+        <div id="app" class="partie-messenger" style="width: 100%;">
+            <!--hedhiya div mt3 conversation moush mt3 groupe-->
+            <div style="margin-top: 20px;" *ngIf="m.groupchat==null">
+
+                <div *ngIf="m.employeeSender.idEmployee!=userAuthenticated.idEmployee">
+                    <div class="message-group-received">
+
+                        <div id="divprivate" class="message-received">
+                            <img id="imagess" [src]="m.employeeSender.profilPicture" />
+                            <div id="idDivRecevier" class="message-received-text">
+                                {{m.content}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="m.employeeSender.idEmployee==userAuthenticated.idEmployee">
+                    <div class="message-group-sent">
+                        <div class="message-sent">
+                            <div id="idDivSender" class="message-sent-text">
+                                {{m.content}}
+                            </div>
+
+                        </div>
+
+                        <div *ngFor="let c of listLastMsg , let p=index">
+                            <div *ngIf="m.seen&&(c.idChat==m.idChat)">
+                                seen ✔
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div>
+                    <h4 style="text-align: center;">{{m.strDateInChat}}</h4>
+                </div>
+
+            </div>
+            <!--hedhi div mt3 chat groupe-->
+            <div style="margin-top: 20px;" *ngIf="m.groupchat!=null">
+                <div *ngIf="m.employeeSender!=null">
+                    <div *ngIf="m.employeeSender.idEmployee!=userAuthenticated.idEmployee">
+                        <div id="divGroupRecevied" class="message-group-received">
+                            <div class="message-received">
+                                <div style="display: flex;flex-direction: column-reverse;">
+                                    <p style="margin-left: 5px;">{{m.employeeSender.username}}</p>
+                                    <img style="width: 40px;height: 40px;border-radius: 50%;"
+                                        [src]="m.employeeSender.profilPicture" />
+                                </div>
+                                <div class="message-received-text">
+                                    {{m.content}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="m.employeeSender.idEmployee==userAuthenticated.idEmployee">
+                        <div class="message-group-sent">
+                            <div class="message-sent">
+                                <div class="message-sent-text">
+                                    {{m.content}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="(m.employeeSender==null)&&(m.employeeRecever==null)">
+                    <h4 style="text-align: center;">{{m.content}}</h4>
+                </div>
+
+                <div>
+                    <h4 style="text-align: center;">{{m.strDateInChat}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

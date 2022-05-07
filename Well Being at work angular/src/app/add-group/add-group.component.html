@@ -1,0 +1,61 @@
+<h1 class="mb-4 text-center">Create a Group ?</h1>
+<form class="myForm" #form="ngForm">
+    <div class="">
+        <input class="form-control" type="text" name="nameGroup" placeholder="name of group" [(ngModel)]="nameGroupe"
+            #name="ngModel" required>
+    </div>
+    <div *ngIf="name.invalid && name.touched">
+        <div *ngIf="name.errors.required" style="color: red;">name of group required !
+        </div>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <div>
+
+        <div class="listChossen">
+            <div *ngFor="let f of listEmployeeChossen , let ii=index">
+
+                <div class="oneElementInListChossen">
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif;">{{f.username}}</p>
+
+                    <button type="button" class="round" (click)="removeFromList(ii)">x</button>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div>
+            <div class="listEmploye">
+                <div *ngFor="let c of listEmployees , let i=index">
+
+                    <div class="signleInfoInList">
+                        <img [src]="c.profilPicture">
+                        <p>{{c.username}}</p>
+                        <br>
+                        <button type="button" class="btn btn-primary" (click)="addToList(i)">invite</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <button style="width:100%" [disabled]="form.invalid" type="submit" class="btn btn-success"
+        (click)="saveGroup(nameGroupe)"> save</button>
+
+
+
+</form>
+<br>
+
+<br>
+<br>
+
+
+<button type="button" class="btn btn-danger" style="width: 100%;" (click)="closeDialog()">close</button>
